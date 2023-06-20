@@ -20,6 +20,7 @@
           <small class="text-danger" *ngIf="getControl('fname')?.errors?.['required']">First Name field is requird</small>
 
           <small class="text-danger" *ngIf="getControl('fname')?.errors?.['maxlength']">Only 32 characters are allowed.</small>
+          <small class="text-danger" *ngIf="getControl('lname')?.errors?.['minlength']">above to 3 characters are allowed.</small>
 
         </div>
 
@@ -38,6 +39,7 @@
           <small class="text-danger" *ngIf="getControl('lname')?.errors?.['required']">Last Name field is requird</small>
 
           <small class="text-danger" *ngIf="getControl('lname')?.errors?.['maxlength']">Only 32 characters are allowed.</small>
+          <small class="text-danger" *ngIf="getControl('lname')?.errors?.['minlength']">above to 3 characters are allowed.</small>
 
         </div>
 

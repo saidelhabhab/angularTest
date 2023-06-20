@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { HttpUsersListResponse } from '../types/users.type';
+import { HttpUsersListResponse, UserType } from '../types/users.type';
 
  const API_URL = 'http://localhost:8080/api/test/';
 
@@ -29,6 +29,10 @@ export class UsersService {
 
   delete(id:number,page: number): Observable<HttpUsersListResponse> {
     return (this.http.delete(`${environment.apiLink}/users?delay=1&page=${page}&per_page=${this.perPage}/${id}`)) as Observable<HttpUsersListResponse>;
+  }
+
+  addUser(user:UserType): Observable<UserType> {
+    return (this.http.post(`${environment.apiLink}/users`,user)) as Observable<UserType>;
   }
 
   getPublicContent(): Observable<any> {

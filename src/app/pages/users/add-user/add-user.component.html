@@ -1,3 +1,81 @@
 <div class="content">
     <h4>{{ 'pages.users.add_page.title' | translate }}</h4>
+
+    <div class="container">
+
+
+      <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} p-4 m-3 w-10">
+
+
+        <b class="text-center bg-4">Add User </b>
+        <form [formGroup]="addForm" (ngSubmit)="addForm.status !== 'INVALID' && addUser()">
+
+
+
+          <div class="mb-3">
+
+            <label for="fname" class="form-label">First Name</label>
+
+            <input type="text" class="form-control" id="fname" placeholder="First Name" formControlName="first_name" [ngClass]="{error : getControl('first_name')?.errors && getControl('first_name')?.touched}">
+
+            <div *ngIf="getControl('first_name')?.errors && getControl('first_name')?.touched">
+
+              <small class="text-danger" *ngIf="getControl('first_name')?.errors?.['required']">First Name field is requird</small>
+
+              <small class="text-danger" *ngIf="getControl('first_name')?.errors?.['maxlength']">Only 32 characters are allowed.</small>
+              <small class="text-danger" *ngIf="getControl('first_name')?.errors?.['minLength']">above to 3 characters are allowed.</small>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="mb-3">
+
+            <label for="lname" class="form-label">Last Name</label>
+
+            <input type="text" class="form-control" id="lname" placeholder="Last Name" formControlName="last_name" [ngClass]="{error : getControl('last_name')?.errors && getControl('last_name')?.touched}">
+
+            <div *ngIf="getControl('last_name')?.errors && getControl('last_name')?.touched">
+
+              <small class="text-danger" *ngIf="getControl('last_name')?.errors?.['required']">Last Name field is requird</small>
+
+              <small class="text-danger" *ngIf="getControl('last_name')?.errors?.['maxlength']">Only 32 characters are allowed.</small>
+              <small class="text-danger" *ngIf="getControl('last_name')?.errors?.['minlength']">above to 3 characters are allowed.</small>
+
+            </div>
+
+          </div>
+
+
+          <div class="mb-3">
+
+            <label for="email" class="form-label">Email</label>
+
+            <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email" [ngClass]="{error : getControl('email')?.errors && getControl('email')?.touched}">
+
+            <div *ngIf="getControl('email')?.errors && getControl('email')?.touched">
+
+              <small class="text-danger" *ngIf="getControl('email')?.errors?.['required']">Email field is requird</small>
+
+              <small class="text-danger" *ngIf="getControl('email')?.errors?.['maxlength']">Email should be maximum 32 characters long.</small>
+
+              <small class="text-danger" *ngIf="getControl('email')?.errors?.['pattern']">Please enter a valid email.</small>
+
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+
+            <input type="submit" class="btn btn-success" [disabled]="addForm.status === 'INVALID'">
+
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+
 </div>

@@ -25,9 +25,9 @@ export class RegisterComponent implements OnInit {
 
   registerForm = new FormGroup({
 
-    fname : new FormControl("", [Validators.required, Validators.maxLength(32)]),
+    fname : new FormControl("", [Validators.required, Validators.maxLength(32),Validators.minLength(3)]),
 
-    lname : new FormControl("", [Validators.required, Validators.maxLength(32)]),
+    lname : new FormControl("", [Validators.required, Validators.maxLength(32),Validators.minLength(3)]),
 
     age : new FormControl("", [Validators.required, Validators.min(18), Validators.max(60), Validators.pattern(this.integreRegex)]),
 

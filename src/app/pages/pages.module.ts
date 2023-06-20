@@ -9,6 +9,7 @@ import { MainService } from '../services/main.service';
 import { UsersService } from '../services/users.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../interceptors/auth.interceptor';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,10 @@ import { AuthInterceptor } from '../interceptors/auth.interceptor';
     CommonModule,
     PagesRoutingModule,
     UsersModule,
-    TranslateModule
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [
     MainService,

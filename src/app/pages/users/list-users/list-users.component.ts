@@ -40,6 +40,7 @@ export class ListUsersComponent implements OnInit, OnDestroy {
   }
 
 
+
   ngOnInit(): void {
     this.getUsers();
   }
